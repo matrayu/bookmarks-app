@@ -80,7 +80,7 @@ class App extends Component {
               return (
                 <AddBookmark
                   onAddBookmark={this.addBookmark}
-                  onClickCancel={() => history.goBack()}
+                  onClickCancel={() => history.push('/')}
                 />
               )
             }}
