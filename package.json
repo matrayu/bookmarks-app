@@ -7,6 +7,9 @@
     "react-dom": "^16.6.3",
     "react-router-dom": "^5.0.0",
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> context-startingpoint
     "react-scripts": "2.1.1"
 =======
     "react-scripts": "^2.1.8"
