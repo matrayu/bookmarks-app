@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+<<<<<<< HEAD
 import { Route } from 'react-router-dom';
+=======
+import { Route } from 'react-router-dom'
+>>>>>>> b3878d5a0cf7b7277fa3cdf10e2af717380c1753
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './BookmarkList/BookmarkList';
 import Nav from './Nav/Nav';
@@ -77,18 +81,29 @@ class App extends Component {
           <Route 
             path='/add-bookmark'
             render={({ history }) => {
+<<<<<<< HEAD
               console.log(history)
+=======
+>>>>>>> b3878d5a0cf7b7277fa3cdf10e2af717380c1753
               return (
                 <AddBookmark
                   onAddBookmark={this.addBookmark}
                   onClickCancel={() => history.push('/')}
                 />
+<<<<<<< HEAD
               )}
             }
           />
           <Route
             exact
             path='/'
+=======
+              )
+            }}
+          />
+          <Route
+            exact path='/'
+>>>>>>> b3878d5a0cf7b7277fa3cdf10e2af717380c1753
             render={() =>
               <BookmarkList
                 bookmarks={bookmarks}
