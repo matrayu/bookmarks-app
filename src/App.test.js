@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 
@@ -8,7 +9,11 @@ it('renders without crashing', () => {
   ReactDOM.render(
     <BrowserRouter>
       <App />
+<<<<<<< HEAD
     </BrowserRouter>,
+=======
+    </BrowserRouter>, 
+>>>>>>> b3878d5a0cf7b7277fa3cdf10e2af717380c1753
     div
   );
   ReactDOM.unmountComponentAtNode(div);
