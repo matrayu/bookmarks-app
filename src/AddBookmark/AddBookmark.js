@@ -1,18 +1,6 @@
 import React, { Component } from  'react';
-<<<<<<< HEAD
-<<<<<<< HEAD
-import { withRouter } from 'react-router-dom';
-<<<<<<< HEAD
-=======
-import BookmarkContent from '../BookmarkContext';
->>>>>>> context-startingpoint
-=======
 import BookmarksContext from '../BookmarksContext';
->>>>>>> context
-import config from '../config'
-=======
 import config from '../config';
->>>>>>> b3878d5a0cf7b7277fa3cdf10e2af717380c1753
 import './AddBookmark.css';
 
 const Required = () => (
@@ -20,11 +8,7 @@ const Required = () => (
 );
 
 class AddBookmark extends Component {
-<<<<<<< HEAD
-  static contextType = BookmarkContent;
-=======
   static contextType = BookmarksContext;
->>>>>>> context
 
   state = {
     error: null,
@@ -68,18 +52,8 @@ class AddBookmark extends Component {
         url.value = ''
         description.value = ''
         rating.value = ''
-<<<<<<< HEAD
-<<<<<<< HEAD
         this.props.history.push('/')
-        this.props.onAddBookmark(data)
-=======
         this.context.addBookmark(data)
-        this.props.history.push('/')
->>>>>>> context-startingpoint
-=======
-        this.context.addBookmark(data)
-        this.props.history.push('/')
->>>>>>> context
       })
       .catch(error => {
         console.log(error)
@@ -87,16 +61,8 @@ class AddBookmark extends Component {
       })
   }
 
-  handleClickCancel = () => {
-    this.props.history.push('/')
-  };
-
   render() {
     const { error } = this.state
-<<<<<<< HEAD
-    
-=======
->>>>>>> context
     return (
       <section className='AddBookmark'>
         <h2>Create a bookmark</h2>
