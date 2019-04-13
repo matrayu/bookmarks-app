@@ -1,6 +1,10 @@
 import React, { Component } from  'react';
 import { withRouter } from 'react-router-dom';
+<<<<<<< HEAD
 import config from '../config'
+=======
+import config from '../config';
+>>>>>>> b3878d5a0cf7b7277fa3cdf10e2af717380c1753
 import './AddBookmark.css';
 
 const Required = () => (
