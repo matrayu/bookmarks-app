@@ -6,7 +6,7 @@ import './BookmarkItem.css';
 
 function deleteBookmarkRequest(bookmarkId, callback) {
   //console.log('delete', bookmarkId, callback);
-  //console.log(`${config.API_ENDPOINT}/${bookmarkId}`);
+  console.log(`${config.API_ENDPOINT}/${bookmarkId}`);
   fetch(`${config.API_ENDPOINT}/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
