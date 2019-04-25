@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import BookmarkItem from '../BookmarkItem/BookmarkItem';
-import BookmarkContext from '../BookmarkContext';
+import BookmarksContext from '../BookmarksContext';
 import './BookmarkList.css'
 
 class BookmarkList extends Component {
-  static contextType = BookmarkContext;
+  static contextType = BookmarksContext;
 
   /* static defaultProps = {
     bookmarks: []
