@@ -1,17 +1,20 @@
 import React from 'react';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
-import config from '../config';
+import { Link } from 'react-router-dom';
+/* import config from '../config'; */
 import './BookmarkItem.css';
+
+const { API_TOKEN, API_ENDPOINT } = require('../config')
 
 function deleteBookmarkRequest(bookmarkId, callback) {
   //console.log('delete', bookmarkId, callback);
-  console.log(`${config.API_ENDPOINT}/${bookmarkId}`);
-  fetch(`${config.API_ENDPOINT}/${bookmarkId}`, {
+  console.log(`${API_ENDPOINT}/${bookmarkId}`);
+  fetch(`${API_ENDPOINT}/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
       'content-type': 'application/json',
-      'authorization': `bearer ${config.API_KEY}` 
+      'authorization': `bearer ${API_TOKEN}` 
     }
   })
     .then(res => {
@@ -20,13 +23,11 @@ function deleteBookmarkRequest(bookmarkId, callback) {
           throw error
         })
       }
-      console.log(res.statusText)
-      return res.json()
+      return res
     })
     .then(data => {
       // call the callback when the request is successful
       // this is where the App component can remove it from state
-      console.log(data)
       callback(bookmarkId)
     })
     .catch(error => {
@@ -54,8 +55,9 @@ export default function BookmarkItem(props) {
             {props.description}
           </p>
           <div className='BookmarkItem__buttons'>
+            <Link to={`edit/${props.id}`}>Update</Link>
             <button
-              className='BookmarkItem__description'
+              className='BookmarkItem__delete'
               onClick={() => {
                 deleteBookmarkRequest(props.id,context.deleteBookmark)
               }}

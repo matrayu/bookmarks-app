@@ -2,10 +2,13 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './BookmarkList/BookmarkList';
+import PatchBookmark from './PatchBookmark/PatchBookmark';
 import BookmarksContext from './BookmarksContext';
 import Nav from './Nav/Nav';
-import config from './config';
 import './App.css';
+/* import config from './config'; */
+/* require('dotenv').config() */
+const { API_TOKEN, API_ENDPOINT } = require('./config')
 
 class App extends Component {
   state = {
@@ -27,19 +30,27 @@ class App extends Component {
   }
 
   deleteBookmark = bookmarkId => {
-    console.log('delete', bookmarkId)
     const newBookmarks = this.state.bookmarks.filter(bm =>
       bm.id !== bookmarkId
     )
     this.setState({ bookmarks: newBookmarks })
   }
 
+  patchBookmark = (bookmark) => {
+    const updatedBookmark = this.state.bookmarks.map(bm =>
+      (bm.id === bookmark.id) ? bookmark : bm 
+    )
+    this.setState({
+      bookmarks: updatedBookmark
+    })
+  }
+
   componentDidMount() {
-    fetch(config.API_ENDPOINT, {
+    fetch(API_ENDPOINT, {
       method: 'GET',
       headers: {
         'content-type': 'application/json',
-        'Authorization': `Bearer ${config.API_KEY}`
+        'Authorization': `Bearer ${API_TOKEN}`
       }
     })
       .then(res => {
@@ -57,6 +68,8 @@ class App extends Component {
       bookmarks: this.state.bookmarks,
       addBookmark: this.addBookmark,
       deleteBookmark: this.deleteBookmark,
+      patchBookmark: this.patchBookmark,
+
     }
     return (
       <main className='App'>
@@ -72,6 +85,10 @@ class App extends Component {
               exact
               path='/'
               component={BookmarkList}
+            />
+            <Route 
+              path='/edit/:bookmarkId'
+              component={PatchBookmark}
             />
           </div>
         </BookmarksContext.Provider>
