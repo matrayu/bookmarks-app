@@ -1,5 +1,6 @@
 {
     "version": 2,
+    "alias": "matrayu-bookmarks-app",
     "name": "bookmarks-app",
     "routes":[
         {

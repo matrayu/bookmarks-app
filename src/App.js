@@ -6,8 +6,8 @@ import PatchBookmark from './PatchBookmark/PatchBookmark';
 import BookmarksContext from './BookmarksContext';
 import Nav from './Nav/Nav';
 import './App.css';
-/* import config from './config'; */
-/* require('dotenv').config() */
+require('dotenv').config()
+
 const { API_TOKEN, API_ENDPOINT } = require('./config')
 
 class App extends Component {

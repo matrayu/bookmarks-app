@@ -17,7 +17,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "now ./build"
+    "deploy": "now ./build",
+    "postdeploy": "now alias -A ./public/now.json"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -32,6 +32,7 @@ class AddBookmark extends Component {
       rating: parseInt(rating.value),
     }
     this.setState({ error: null })
+
     fetch(API_ENDPOINT, {
       method: 'POST',
       body: JSON.stringify(bookmark),
@@ -41,7 +42,6 @@ class AddBookmark extends Component {
       }
     })
       .then(res => {
-        console.log(res)
         if (!res.ok) {
           // get the error message from the response,
           return res
@@ -49,16 +49,15 @@ class AddBookmark extends Component {
             .then(error => {
               // then throw it
               throw error
-          })
+            })
         }
         return res.json()
       })
       .then(data => {
-        console.log(data)
         title.value = ''
         url.value = ''
         description.value = ''
-        rating.value = ''
+        rating.value = 1
         this.props.history.push('/')
         this.context.addBookmark(data)
       })
@@ -119,17 +118,16 @@ class AddBookmark extends Component {
           </div>
           <div>
             <label htmlFor='rating'>
-              Rating
-              {' '}
+              Rating{' '}
               <Required />
             </label>
             <input
               type='number'
               name='rating'
               id='rating'
-              defaultValue='1'
-              min='1'
-              max='5'
+              defaultValue={1}
+              min={1}
+              max={5}
               required
             />
           </div>

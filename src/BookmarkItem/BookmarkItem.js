@@ -2,14 +2,11 @@ import React from 'react';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
 import { Link } from 'react-router-dom';
-/* import config from '../config'; */
 import './BookmarkItem.css';
 
 const { API_TOKEN, API_ENDPOINT } = require('../config')
 
 function deleteBookmarkRequest(bookmarkId, callback) {
-  //console.log('delete', bookmarkId, callback);
-  console.log(`${API_ENDPOINT}/${bookmarkId}`);
   fetch(`${API_ENDPOINT}/${bookmarkId}`, {
     method: 'DELETE',
     headers: {
@@ -55,7 +52,9 @@ export default function BookmarkItem(props) {
             {props.description}
           </p>
           <div className='BookmarkItem__buttons'>
-            <Link to={`edit/${props.id}`}>Update</Link>
+            <Link to={`/edit/${props.id}`}>
+              Update
+            </Link>
             <button
               className='BookmarkItem__delete'
               onClick={() => {

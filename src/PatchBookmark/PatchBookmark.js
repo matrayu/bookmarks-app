@@ -2,6 +2,7 @@ import React, { Component } from  'react';
 import BookmarksContext from '../BookmarksContext';
 /* import config from '../config'; */
 import './PatchBookmark.css';
+
 const { API_TOKEN, API_ENDPOINT } = require('../config')
 const xss = require('xss');
 
@@ -88,7 +89,7 @@ class PatchBookmark extends Component {
         title.value = ''
         url.value = ''
         description.value = ''
-        rating.value = ''
+        rating.value = 1
         this.props.history.push('/')
         this.context.patchBookmark(bookmark)
       })
@@ -169,8 +170,8 @@ class PatchBookmark extends Component {
               type='number'
               name='rating'
               id='rating'
-              min='1'
-              max='5'
+              min={1}
+              max={5}
               required
               value={rating}
               onChange={this.handleChange}
